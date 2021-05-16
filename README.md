@@ -10,7 +10,7 @@ files
 
 
 Home :
-![lll](https://user-images.githubusercontent.com/67116029/118412739-f9ad4380-b69b-11eb-9751-3978248cae4e.PNG)
+![home](https://user-images.githubusercontent.com/67116029/118413904-ed2be980-b6a1-11eb-9dd1-0068d4a1dd2a.png)
 
 - Highlighting sections in the viewport :
 ![2](https://user-images.githubusercontent.com/67116029/118412804-4d1f9180-b69c-11eb-986d-9de8a0bbe6aa.PNG)
