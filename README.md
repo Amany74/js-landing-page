@@ -16,4 +16,7 @@ Home :
 ![2](https://user-images.githubusercontent.com/67116029/118412804-4d1f9180-b69c-11eb-986d-9de8a0bbe6aa.PNG)
 
 - current clicked link remains until another is clicked and to top bottom :
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/67116029/118413849-b229b600-b6a1-11eb-93b8-3a3701d98bfa.gif)
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/67116029/118414397-9bd12980-b6a4-11eb-92af-44e687c3ecc8.gif)
+
+- Adding new sections :
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/67116029/118414215-9c1cf500-b6a3-11eb-83e2-2280c8ea5bde.gif)
