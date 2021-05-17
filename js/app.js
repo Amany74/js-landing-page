@@ -44,7 +44,7 @@ button.addEventListener('click',addNewSection);
    6 - incrementing the index of sections
    */
 function addNewSection (){
-      const mainArticle = document.getElementById('arti');
+      const mainArticle = document.getElementById('article');
       const sec = document.createElement('section');
       sec.setAttribute("id",`section${sectionListId+1}`)
       sec.setAttribute("class",`Section${sectionListId+1}`)
@@ -53,10 +53,12 @@ function addNewSection (){
       let id = `section${sectionListId+1}`;
       addToNav(id);
       sectionListId++;
+      highlightSectionLink();
 
 }
 
 // at least 3 sections on start 
+addNewSection();
 addNewSection();
 addNewSection();
 addNewSection();
@@ -91,13 +93,13 @@ function addToNav(id){
 
 
 // to top button
-const toTop = document.querySelector(".arrow");
+const toTopOfThePage = document.querySelector(".arrow");
 //adding an event listener on scroll to show and hide the to-top arrow 
 window.addEventListener("scroll", () => {
       if (window.pageYOffset > 200) {
-        toTop.classList.add("arrow");
+        toTopOfThePage.classList.add("arrow");
       } else {
-        toTop.classList.remove("arrow");
+        toTopOfThePage.classList.remove("arrow");
       }
 })
 
@@ -113,23 +115,23 @@ window.addEventListener("scroll", () => {
 */
 
 
-
 // Set sections as active
-
 // function to activate the current section and add class "your active class" 
 //adding background color to active section and  remove the background color from the last section
+const addActiveClass = (conditional, section) => {
+  if(conditional){
+      section.classList.add('your-active-class');
+      section.style.cssText = "background-color: rgb(60,97,150);";
+};
+};
 
+  // remove the active class with specific section parameter
+  const removeActiveClass = (section) => {
+      section.classList.remove('your-active-class');
+      section.style.cssText = "background-color: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%)";
+  };
 
-
-function activate(section){
-  section.classList.add('your-active-class')
-  section.style.background = "linear-gradient(130deg,#4da0b0 20%,#d39d38)";
-
-}
-
-
-
-//function to disable the current active  section 
+//function to disable the last active section  without  parameters
 function disable(){
       const section = document.querySelector('.your-active-class');
       section.classList.remove('your-active-class');
@@ -144,50 +146,25 @@ function disable(){
 // 3-
 // */
 document.querySelector(".navbar__menu").addEventListener("click", function (evt) {  
-      let sectionClassName = `.Section${evt.target.innerHTML[8]}`; //coverting the section index to the section class name
+      let sectionClassName = `.Section${evt.target.innerHTML[8]}`; //coverting the section index to the section class name (unique to each section)
       const nextActiveSection = document.querySelector(sectionClassName) // quering with sectionClassName to get the next active section
-      activate(nextActiveSection) // calling activate to highlight section
+      addActiveClass(true,nextActiveSection) // calling activate to highlight section
       disable() // disable the last active section
-      var i = evt.target.innerHTML[8]
 
 })
 
-
-
-
-
-
-
-//highlighting section in viewport without clicking the link
-
-  // remove the active class
-  const removeActiveClass = (section) => {
-      section.classList.remove('your-active-class');
-      section.style.cssText = "background-color: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%)";
-  };
-  // adding the active class
-  const addActiveClass = (conditional, section) => {
-      if(conditional){
-          section.classList.add('your-active-class');
-          section.style.cssText = "background-color: rgb(60,97,150);";
-  };
-  };
   
-  //implementating the actual function for adding active class dynamically 
+  //implementating the actual function for adding active class dynamically  > //highlighting section in viewport without clicking the link
   
   const activateCurrentSection = () => {
     let sections = Array.from(document.querySelectorAll('section'));
-
-
     const offset = (section) => {
           return section.getBoundingClientRect().top;
       };
-      
     sections.forEach(section => {
-              const elementOffset = offset(section);
-              inviewport = () => elementOffset < 150 && elementOffset >= -150;
+              const elementTop = offset(section);
               removeActiveClass(section);
-              addActiveClass(inviewport(),section);
+              addActiveClass(elementTop < 165 && elementTop >= -150 ,section);
     });
   };
   
@@ -197,13 +174,15 @@ document.querySelector(".navbar__menu").addEventListener("click", function (evt)
 
   
 //highlightin section link
+
+function highlightSectionLink() {
 let links = Array.from(document.querySelectorAll('a')); // selecting all links
 links = links.slice(0,links.length-1)
-
 // Loop through the links and add the active class to the current/clicked button
 //default active link is the first link
   links.forEach(link => link.addEventListener("click", function activateLink() {
    links.forEach(link => link.classList.remove('active')); // remove active class from all links and add it only to the clicked link
    this.classList.add('active')
 })
-        );
+        )};
+highlightSectionLink();
