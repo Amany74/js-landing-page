@@ -24,3 +24,8 @@ Home :
 - Adding new sections :
 
 ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/67116029/118414215-9c1cf500-b6a3-11eb-83e2-2280c8ea5bde.gif)
+
+
+
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7883bb77-c92b-423a-b3f0-3bb2269d6173/deploy-status)](https://app.netlify.com/sites/landingpageeee/deploys)
