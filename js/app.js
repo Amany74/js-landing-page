@@ -96,7 +96,7 @@ function addToNav(id){
 const toTopOfThePage = document.querySelector(".arrow");
 //adding an event listener on scroll to show and hide the to-top arrow 
 window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 200) {
+      if (window.pageYOffset > 300) {
         toTopOfThePage.classList.add("arrow");
       } else {
         toTopOfThePage.classList.remove("arrow");
